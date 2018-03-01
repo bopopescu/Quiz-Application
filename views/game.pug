@@ -1,0 +1,52 @@
+doctype html
+
+html
+  head
+    title QUIZ APP
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css')
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+    script(src='/socket.io/socket.io.js')
+    style.
+      body        { padding-top:80px; word-wrap:break-word; }
+
+  body
+    script(src='/javascripts/gameroom.js')
+    .container
+      .page-header.text-center
+        h1
+          span.fa.fa-superpowers
+          |  Quiz App
+        a.btn.btn-default.btn-sm(href='/logout') Logout
+      .container
+        #gameRoom
+          .row.equal
+            .col-sm-12
+              .well
+                h4 Game:
+                p Players: #{room.players}
+      .container
+        #video
+          .row.equal
+            .col-sm-6
+              #video_container
+                .well
+            .col-sm-6
+              .well
+                form(method='POST' action='')
+                  div.form-group
+                      div.control-group
+                        label.control-label Another song by this singer:
+                        div.controls
+                          label.radio.inline
+                              input(type="radio", name="song", id="song1", value="correct" check="false")
+                              label Burning Love
+                          label.radio.inline 
+                              input(type="radio", name="song", id="song2", value="wrong" check="false")
+                              label Heaven
+                  button#pri.btn.btn-primary(type='submit') Sign up
+                        
+
+                  
+                        

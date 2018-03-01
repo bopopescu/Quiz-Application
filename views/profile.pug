@@ -1,0 +1,60 @@
+doctype html
+
+html
+  head
+    title QUIZ APP
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css')
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+    script(src='/socket.io/socket.io.js')
+    style.
+      body        { padding-top:80px; word-wrap:break-word; }
+
+  body
+    script(src='/javascripts/profile.js')
+    .container
+      .page-header.text-center
+        h1
+          span.fa.fa-superpowers
+          |  Quiz App
+        a.btn.btn-default.btn-sm(href='/logout') Logout
+      .container
+        .row.equal
+          .col-sm-6
+            .well
+              h3.text-danger
+                span.fa.fa-google-plus
+              p
+              |   #{user.google.name}
+              br
+              |    #{user.google.email}
+          .col-sm-6
+            .well
+              a.btn.btn-primary.btn-circle.btn-xl(href='/creategame')
+                i.fa.fa-plus
+              br
+              |
+              p 
+                strong Create New Quiz Game
+        .row.equal
+          .col-sm-12
+            .well
+              h4 Enter existing game:
+              #table-wrapper
+                table
+                  thead
+                    tr
+                      th Game:
+                      th No of players needed:
+                      th Players joined
+                      th 
+                  tbody
+                    each room in rooms
+                      tr
+                        td=room.roomName
+                        td 2
+                        td=room.players
+                        td 
+                          a(href='/creategame/client/'+room.roomName) #{room.url}
+                
